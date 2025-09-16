@@ -20,9 +20,9 @@ pipeline {
         stage("Update the Deployment Tags") {
             steps {
                 sh """
-                   cat deployment.yaml
-                   sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deployment.yaml
-                   cat deployment.yaml
+                     cat deployment.yaml
+                     sed -i "s|image: .*|image: muthukumar001/boardgame-app:${IMAGE_TAG}|g" deployment.yaml
+                     cat deployment.yaml
                 """
             }
         }
